@@ -5,9 +5,14 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NumeroRomano {
-    private String numeroRomano;
+public class RomanNumber {
+    private final String numeroRomano;
     private HashMap<String, Integer> regexs;
+
+    public RomanNumber(String numeroRomano) {
+        this.numeroRomano = numeroRomano;
+        initRegexDicionario();
+    }
 
     public void initRegexDicionario() {
         regexs = new HashMap<>();
@@ -18,12 +23,8 @@ public class NumeroRomano {
         regexs.put("I", 1);
     }
 
-    public void setNumeroRomano(String numeroRomano) {
-        this.numeroRomano = numeroRomano;
-    }
-
-    public int toDecimal() {
-        int numeroDecimal = 0;
+    public short toDecimal() {
+        short numeroDecimal = 0;
 
         for (String key :
                 regexs.keySet()) {
